@@ -43,8 +43,8 @@ console.log(res2)
 
 
 console.log("4. Get average age")
-let res4 = _.reduce(members,(initalVal,member)=>member.age ? member.age+initalVal : initalVal,0)
-console.log(Math.floor(res4/members.length))
+let res4 = _.reduce(members,(initalVal,member)=>member.age ? [member.age+initalVal[0],initalVal[1]+1] : initalVal,[0,0])
+console.log(Math.floor(res4[0]/res4[1]))
 
 
 
@@ -74,7 +74,7 @@ let res6 = {
     }
 
 _.forEach(members,member=>{
-    if (member.age &&  member.age<35){
+    if (member.age &&  member.age<=35){
         res6["young"].push(member)
     }else if(member.age &&  member.age>35){
         res6["old"].push(member)
